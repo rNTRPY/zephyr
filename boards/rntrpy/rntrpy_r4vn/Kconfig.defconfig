@@ -1,0 +1,45 @@
+# Copyright (c) 2024 MASSDRIVER EI (massdriver.space)
+# Copyright (c) 2018-2023 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_RNTRPY_R4VN
+
+config ARM_MPU
+	default y
+
+config HW_STACK_PROTECTION
+	default y
+
+config GPIO
+	default y
+
+config USB_DEVICE_REMOTE_WAKEUP
+	default n
+
+# Enable the regulator subsystem so the regulator-fixed load switches
+# gating the LEDs, GPS and SCD30 can be powered on demand.
+config REGULATOR
+	default y
+
+source "boards/common/usb/Kconfig.cdc_acm_serial.defconfig"
+
+# The SK6812 strip is GRBW; ws2812_gpio packs 4 bytes per pixel in place
+# and needs the scratch byte in struct led_rgb for that.
+config LED_STRIP_RGB_SCRATCH
+	default y if LED_STRIP
+
+# Timing in nanoseconds / cycles at 64MHz for led strip
+config DELAY_T0H
+	default 19
+
+config DELAY_T1H
+	default 38
+
+config DELAY_T0L
+	default 58
+
+config DELAY_T1L
+	default 38
+
+endif # BOARD_RNTRPY_R4VN

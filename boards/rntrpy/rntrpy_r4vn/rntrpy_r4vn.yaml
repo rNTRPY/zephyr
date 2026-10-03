@@ -1,0 +1,20 @@
+identifier: rntrpy_r4vn/nrf52840
+name: rNTRPY R4VN
+type: mcu
+arch: arm
+ram: 256
+flash: 1024
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - usbd
+  - bluetooth
+  - i2c
+  - spi
+  - watchdog
+  - counter
+  - netif:openthread
+  - gpio
+  - pwm

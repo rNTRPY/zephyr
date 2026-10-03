@@ -1,0 +1,22 @@
+# Copyright (c) 2026 rNTRPY
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Miscellaneous board control and status GPIOs of the rNTRPY R4VN board,
+  such as the GPS reset line and the charger enable/status pins.
+
+  Each signal is a child node with a single GPIO.
+
+compatible: "rntrpy,r4vn-board-controls"
+
+child-binding:
+  description: Board control or status GPIO
+
+  properties:
+    gpios:
+      type: phandle-array
+      required: true
+
+    label:
+      type: string
+      description: Human readable name of the signal.

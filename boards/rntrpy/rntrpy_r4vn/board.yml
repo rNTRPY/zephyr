@@ -1,0 +1,8 @@
+board:
+  name: rntrpy_r4vn
+  full_name: rNTRPY R4VN
+  vendor: rntrpy
+  socs:
+  - name: nrf52840
+    variants:
+    - name: uf2
